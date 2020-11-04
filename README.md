@@ -11,7 +11,7 @@ Installation
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require gambare/page-bundle
+$ composer require gambare-web/page-bundle
 ```
 
 Usage
