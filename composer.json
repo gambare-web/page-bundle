@@ -1,5 +1,5 @@
 {
-    "name": "gambare/page-bundle",
+    "name": "gambare-web/page-bundle",
     "description": "This is a page bundle for Symfony 5",
     "type": "symfony-bundle",
     "license": "MIT",
