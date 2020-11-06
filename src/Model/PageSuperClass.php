@@ -35,65 +35,41 @@ class PageSuperClass
      */
     protected $name;
 
-    /**
-     * @return mixed
-     */
     public function getTitle()
     {
         return $this->title;
     }
 
-    /**
-     * @param mixed $title
-     */
     public function setTitle($title): void
     {
         $this->title = $title;
     }
 
-    /**
-     * @return mixed
-     */
     public function getSlug()
     {
         return $this->slug;
     }
 
-    /**
-     * @param mixed $slug
-     */
     public function setSlug($slug): void
     {
         $this->slug = $slug;
     }
 
-    /**
-     * @return bool
-     */
     public function isEnabled(): bool
     {
         return $this->enabled;
     }
 
-    /**
-     * @param bool $enabled
-     */
     public function setEnabled(bool $enabled): void
     {
         $this->enabled = $enabled;
     }
 
-    /**
-     * @return mixed
-     */
     public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * @param mixed $name
-     */
     public function setName($name): void
     {
         $this->name = $name;
