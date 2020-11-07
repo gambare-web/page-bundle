@@ -14,15 +14,15 @@ class PageSuperClass
 {
 
     /**
-     * @ORM\Column(type="text", nullable=false)
-     */
-    protected $title;
-
-    /**
-     * @Gedmo\Slug(fields={"title"}, unique=true)
-     * @ORM\Column(type="string", length=255)
+     * @Gedmo\Slug(fields={"id"})
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $slug;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $title;
 
     /**
      * @ORM\Column(type="boolean")

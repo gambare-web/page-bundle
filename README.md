@@ -19,6 +19,18 @@ Open a command console, enter your project directory and execute:
 composer require gambare-web/page-bundle:dev-main
 ```
 
+Activate doctrine extention
+
+```yaml
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            sluggable: true
+```
+
+// TODO - this could be automatized : https://symfony.com/doc/current/bundles/prepend_extension.html
+
 Usage
 ============
 
@@ -26,9 +38,7 @@ Create a Page entity that extend PageBase class.
 
 The only required field is an id. 
 
-```
-<?php
-
+```php
 namespace App\Entity;
 
 use App\Repository\PageRepository;
@@ -60,7 +70,7 @@ Create a PageCrudController class that extends PageBaseCrudController
 
 PageBaseCrudController is extending the AbstractCrudController from EasyAdmin
 
-```
+```php
 namespace App\Controller\Admin;
 
 use App\Entity\Page;
@@ -77,19 +87,17 @@ class PageCrudController extends PageBaseCrudController
 
 Add the PageCrudController to your EasyAdmin DashboardController
 
-```
+```php
 namespace App\Controller\Admin;
 
 use App\Entity\Page;
 
 class DashboardController extends AbstractDashboardController
 {
-
-   [...]
-
+   //[...]
     public function configureMenuItems(): iterable
     {
-        [...]
+        //[...]
         yield MenuItem::linkToCrud('Page', 'far fa-file', Page::class);
     }
 }
