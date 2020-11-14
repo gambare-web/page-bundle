@@ -10,31 +10,42 @@ trait PageBasicAnalytics
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    protected $nbViews = 0;
+    protected ?int $nbViews = 0;
 
     /**
      * Header tag
-     * @var string
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $analytics;
+    protected ?string $analytics = null;
 
-    public function getNbViews(): int
+    /**
+     * @return int|null
+     */
+    public function getNbViews(): ?int
     {
         return $this->nbViews;
     }
 
-    public function setNbViews(int $nbViews): void
+    /**
+     * @param int|null $nbViews
+     */
+    public function setNbViews(?int $nbViews): void
     {
         $this->nbViews = $nbViews;
     }
 
+    /**
+     * @return string|null
+     */
     public function getAnalytics(): ?string
     {
         return $this->analytics;
     }
 
-    public function setAnalytics(string $analytics): void
+    /**
+     * @param string|null $analytics
+     */
+    public function setAnalytics(?string $analytics): void
     {
         $this->analytics = $analytics;
     }
@@ -42,5 +53,7 @@ trait PageBasicAnalytics
     public function view()
     {
         $this->nbViews++;
+
+        return $this;
     }
 }

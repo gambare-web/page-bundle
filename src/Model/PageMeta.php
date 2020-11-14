@@ -10,52 +10,65 @@ trait PageMeta
 
     /**
      * This comma separated list will contain the keywords for the page's meta information.
-     *
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $metaKeywords;
+    protected ?string $metaKeywords = null;
 
     /**
      * If this string is set, it will be inserted as a meta tag for the page description.
-     *
-     * @var string
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $metaDescription;
+    protected ?string $metaDescription = null;
 
     /**
-     * @var string
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $metaTitle;
+    protected ?string $metaTitle = null;
 
-
+    /**
+     * @return string|null
+     */
     public function getMetaKeywords(): ?string
     {
         return $this->metaKeywords;
     }
 
-    public function setMetaKeywords(string $metaKeywords): void
+    /**
+     * @param string|null $metaKeywords
+     */
+    public function setMetaKeywords(?string $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @return string|null
+     */
     public function getMetaDescription(): ?string
     {
         return $this->metaDescription;
     }
 
-    public function setMetaDescription(string $metaDescription): void
+    /**
+     * @param string|null $metaDescription
+     */
+    public function setMetaDescription(?string $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @return string|null
+     */
     public function getMetaTitle(): ?string
     {
         return $this->metaTitle;
     }
 
-    public function setMetaTitle(string $metaTitle): void
+    /**
+     * @param string|null $metaTitle
+     */
+    public function setMetaTitle(?string $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }

@@ -12,65 +12,88 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class PageSuperClass
 {
-
     /**
      * @Gedmo\Slug(fields={"id"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $slug;
+    protected ?string $slug = null;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $title;
+    protected ?string $title = null;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $enabled = false;
+    protected ?bool $enabled = false;
 
     /**
      * This name could be used for private reference in the admin panel for example.
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $name;
+    protected ?string $name = null;
 
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    public function setTitle($title): void
-    {
-        $this->title = $title;
-    }
-
-    public function getSlug()
+    /**
+     * @return string|null
+     */
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    public function setSlug($slug): void
+    /**
+     * @param string|null $slug
+     */
+    public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
     }
 
-    public function isEnabled(): bool
+    /**
+     * @return string|null
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string|null $title
+     */
+    public function setTitle(?string $title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getEnabled(): ?bool
     {
         return $this->enabled;
     }
 
-    public function setEnabled(bool $enabled): void
+    /**
+     * @param bool|null $enabled
+     */
+    public function setEnabled(?bool $enabled): void
     {
         $this->enabled = $enabled;
     }
 
-    public function getName()
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName($name): void
+    /**
+     * @param string|null $name
+     */
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
