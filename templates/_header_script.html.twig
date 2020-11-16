@@ -1,0 +1,7 @@
+{% if page is defined %}
+    {% if page.analytics is defined and page.analytics %}
+        <script>
+            {{ page.analytics | raw }}
+        </script>
+    {% endif %}
+{% endif %}

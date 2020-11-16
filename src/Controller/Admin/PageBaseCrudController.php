@@ -28,14 +28,19 @@ class PageBaseCrudController extends AbstractCrudController
         $enabled   = BooleanField::new('enabled', 'Activate');
 
         // Traits PageMeta (SEO)
-        $panelMeta       = FormField::addPanel('Meta', 'fas fa-code');
-        $metaKeywords    = TextareaField::new('metaKeywords');
-        $metaDescription = TextareaField::new('metaDescription');
-        $metaTitle       = TextareaField::new('metaTitle');
+        $panelMeta = FormField::addPanel('Meta', 'fas fa-code');
+        $metaTitle = TextField::new('metaTitle');
+        $metaDescription = TextField::new('metaDescription')->setHelp("https://moz.com/learn/seo/meta-description");
+        $metaKeywords = TextField::new('metaKeywords');
+        $author = TextField::new('author');
+        $robot = TextField::new('robot')->setHelp(
+            "ex: index,follow  | noindex,nofollow  - https://moz.com/learn/seo/robots-meta-directives"
+        );
 
         // Traits PageBasicAnalytics
         $panelAnalytics = FormField::addPanel('Analytics', 'fas fa-bar-chart');
-        $analytics      = TextareaField::new('analytics', 'Header tag')->setHelp("Put here specific tag for the page like.");
+        $analytics      = TextareaField::new('analytics', 'Header Script')->setHelp("Put here script code to be displayed in the header");
+        $analyticsFooter      = TextareaField::new('analyticsFooter', 'Footer script')->setHelp("Put here script code to be displayed in the footer, like Google Analytics tracker code");
         $nbviews        = IntegerField::new('nbviews', 'Views');
 
         // Traits Timestampable
@@ -53,12 +58,15 @@ class PageBaseCrudController extends AbstractCrudController
             $enabled,
 
             $panelMeta,
-            $metaKeywords,
-            $metaDescription,
             $metaTitle,
+            $metaDescription,
+            $metaKeywords,
+            $author,
+            $robot,
 
             $panelAnalytics,
             $analytics,
+            $analyticsFooter,
             $nbviews,
         ];
 
@@ -71,11 +79,14 @@ class PageBaseCrudController extends AbstractCrudController
                 $title,
                 $slug,
                 $enabled,
-                $metaKeywords,
-                $metaDescription,
                 $metaTitle,
-                $nbviews,
+                $metaDescription,
+                $metaKeywords,
+                $author,
+                $robot,
                 $analytics,
+                $analyticsFooter,
+                $nbviews,
                 $createdAt,
                 $updatedAt,
             ];

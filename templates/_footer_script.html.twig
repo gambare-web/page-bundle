@@ -1,0 +1,7 @@
+{% if page is defined %}
+    {% if page.analyticsFooter is defined and page.analyticsFooter %}
+        <script>
+            {{ page.analyticsFooter | raw }}
+        </script>
+    {% endif %}
+{% endif %}

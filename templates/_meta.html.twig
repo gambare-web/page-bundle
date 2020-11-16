@@ -1,0 +1,17 @@
+{% if page is defined %}
+    {% if page.metaTitle is defined and page.metaTitle %}
+        <meta name="title" content="{{ page.metaTitle | raw }}">
+    {% endif %}
+    {% if page.metaDescription is defined and page.metaKeywords %}
+        <meta name="description" content="{{ page.metaDescription | raw }}">
+    {% endif %}
+    {% if page.metaKeywords is defined and page.metaKeywords %}
+        <meta name="keywords" content="{{ page.metaKeywords | raw }}">
+    {% endif %}
+    {% if page.author is defined and page.author %}
+        <meta name="author" content="{{ page.author | raw }}">
+    {% endif %}
+    {% if page.robot is defined and page.robot %}
+        <meta name="robots" content="{{ page.robot | raw }}">
+    {% endif %}
+{% endif %}
