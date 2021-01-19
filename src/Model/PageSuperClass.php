@@ -13,26 +13,31 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class PageSuperClass
 {
     /**
+     * @var string|null
      * @Gedmo\Slug(fields={"id"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected ?string $slug = null;
+    protected $slug = null;
 
     /**
+     * The title is shown in the page header. Could be use as H1 also.
+     * @var string|null
      * @ORM\Column(type="text", nullable=true)
      */
-    protected ?string $title = null;
+    protected $title = null;
 
     /**
+     * @var boolean
      * @ORM\Column(type="boolean", nullable=true)
      */
-    protected ?bool $enabled = false;
+    protected $enabled = false;
 
     /**
+     * @var string|null
      * This name could be used for private reference in the admin panel for example.
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected ?string $name = null;
+    protected $name = null;
 
     /**
      * @return string|null
